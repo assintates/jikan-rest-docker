@@ -1,4 +1,4 @@
-FROM php:7.3.2-nginx-stretch
+FROM 'pull urbit/lumen-nginx'
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER 1
