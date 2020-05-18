@@ -1,4 +1,4 @@
-FROM php:7.3.2-apache-stretch
+FROM php:7.3.2-nginx-stretch
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER 1
@@ -11,9 +11,6 @@ RUN apt-get update && apt-get install -y \
  # Install Composer
  && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
  && composer --version \
- # Apache
- && a2enmod rewrite \
- && service apache2 restart \
  # Clone jikan-rest
  && git clone https://github.com/jikan-me/jikan-rest.git . \
  && composer install --prefer-dist --no-progress --no-suggest --classmap-authoritative  --no-interaction
